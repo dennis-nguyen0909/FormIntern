@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
+    <title>LOGIN</title>
+</head>
+<body>
+
+    <div class="container mt-5 pt-5">
+       <div class="row">
+        <div class="col-12 col-sm-8 col-md-6 m-auto">
+            <div class="card">
+                <div style="color: rgb(189,227,248);" class="card-header text-center">
+                    <p style="color: rgb(120,143,157);font-weight: bold;">Đăng ký môn học</p>
+                </div>
+                <div class="card-body">
+                    <form id="loginForm" action="">
+                        <div class="input-group mb-3">
+                            <span class="input-group-text">Họ và tên :</span>
+                            <input id="fullname" class="form-control" placeholder="Họ tên..." type="text" />
+                        </div>
+                        <div class="input-group mb-3">
+                            <span class="input-group-text">MSSV :</span>
+                            <input id="idStudent" class="form-control" placeholder="DH...." type="text" />
+                        </div>
+                        <div class="input-group mb-3">
+                            <span class="input-group-text">Ngày sinh:</span>
+                            <input id="birthday" class="form-control" placeholder="Họ và tên" type="date" />
+                        </div>
+                        <div class="input-group mb-3 d-flex align-items-center">
+                            <span class="input-group-text">Gioi tính</span>
+                            <div class="mx-3 ">
+                                <input  type="radio" name="gender" value="nam" id="male"/>
+                                <label for="male" >Nam</label>
+                            </div>
+                            <div>
+                                <input  type="radio" name="gender" value="nữ" id="female"/>
+                                <label for="female" >Nữ</label>
+                            </div>
+                        </div>
+                        <div class="input-group mb-3">
+                            <span class="input-group-text">Địa chỉ:</span>
+                            <input id="address" class="form-control" placeholder="Địa chỉ..." type="text" />
+                        </div>
+                        <div class="input-group mb-3">
+                            <span class="input-group-text">Môn học:</span>
+                            <select id="selectValue">
+                                <option value="1">Lập trình JavaScript</option>
+                                <option value="2">Lập trình Java</option>
+                                <option value="3">Lập trình NodeJs</option>
+                                <option value="4">Lập trình ReactJs</option>
+                                <option value="5">Lập trình .NET</option>
+                            </select>
+                        </div>
+                        <div style="color: red;" id="result"></div>
+                       
+                        <div class="text-center mt-3 ">
+                            <button type="submit" class="btn btn-primary w-100">Đăng ký</button>
+                        </div>
+                    </form>
+                </div>
+              
+            </div>
+        </div>
+       </div>
+       
+
+    </div>
+    
+    <script>
+        document.getElementById("loginForm").addEventListener("submit",(e)=>{
+            e.preventDefault();
+          var  $fullName=document.getElementById('fullname').value.trim();
+          var  $idStudent=document.getElementById('idStudent').value.trim();
+          var  $birthDay=document.getElementById("birthday").value;
+          var $address = document.getElementById("address").value.trim();
+          var $selectValue =document.getElementById('selectValue');
+          var $indexValueSelect=$selectValue.selectedIndex
+            const $selectedOptionLabel = $selectValue.options[$indexValueSelect].textContent;
+            const $genderRadios = document.querySelectorAll('input[name="gender"]');
+            let $gender;
+            $genderRadios.forEach((radio)=>{
+                if(radio.checked){
+                    $gender=radio.value;
+                    console.log("radio",$gender)
+                }
+            })
+
+            const $result = document.getElementById("result");
+            if($fullName && $idStudent &&  $birthDay && $address && $selectedOptionLabel && $gender){
+                const htmlResult = `
+                    <p>Họ và tên: ${$fullName}</p>
+                    <p>Mã sinh viên: ${$idStudent}</p>
+                    <p>Ngày sinh: ${$birthDay}</p>
+                    <p>Địa chỉ: ${$address}</p>
+                    <p>Môn đăng ký: ${$selectedOptionLabel}</p>
+                    <p>Giới tính: ${$gender}</p>
+                `;
+                $result.innerHTML = htmlResult;
+            }else{
+                $result.innerHTML = "<p>Vui lòng điền đầy đủ thông tin</p>";
+            }
+        })
+    </script>
+</body>
+</html>

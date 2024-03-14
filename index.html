@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
+    <title>LOGIN</title>
+</head>
+<body>
+
+    <div class="container mt-5 pt-5">
+       <div class="row">
+        <div class="col-12 col-sm-8 col-md-6 m-auto">
+            <div class="card">
+                <div style="color: rgb(189,227,248);" class="card-header">
+                    <p style="color: rgb(120,143,157);font-weight: bold;">Login</p>
+                    <div class="d-flex justify-content-end " style="color: rgb(138,171,203);">
+                        <p style="cursor: pointer; font-weight: bold;">Forgot password?</p>
+                    </div>
+                </div>
+                <div class="card-body">
+                    <form id="loginForm" action="">
+                        <span class="input-group mb-3">
+                            <span class="input-group-text">
+                                <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-person-fill" viewBox="0 0 16 16">
+                                    <path d="M3 14s-1 0-1-1 1-4 6-4 6 3 6 4-1 1-1 1zm5-6a3 3 0 1 0 0-6 3 3 0 0 0 0 6"/>
+                                  </svg>
+                            </span>
+                            <input id="username" class="form-control " placeholder="Username" type="text" />
+                        </span>
+                        <span class="input-group mb-3">
+                            <span class="input-group-text">
+                                <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-lock-fill" viewBox="0 0 16 16">
+                                    <path d="M8 1a2 2 0 0 1 2 2v4H6V3a2 2 0 0 1 2-2m3 6V3a3 3 0 0 0-6 0v4a2 2 0 0 0-2 2v5a2 2 0 0 0 2 2h6a2 2 0 0 0 2-2V9a2 2 0 0 0-2-2"/>
+                                  </svg>
+                            </span>
+                            <input id="password" class="form-control" placeholder="Password" type="password" />
+                        </span>
+                        <div id="emailError"  style="display: none;" >Email không hợp lệ !</div>
+                        <div id="passwordError"  style="display: none;" >Mật khẩu phải dài hơn 6 kí tự !</div>
+                        <div id="resultText" style="color: rgb(6,148,113);"> </div>
+                        <div>
+                            <input  type="checkbox"/>
+                            <span>Remember me</span>
+                        </div>
+                        <div class="text-left mt-3">
+                            <button type="submit" class="btn btn-success">Login</button>
+                            <button class="btn btn-primary">Login with Facebook</button>
+                        </div>
+                    </form>
+                </div>
+                <hr class=""/>
+                <div class="px-3 pb-3 text-left">
+                    <span>Don't have an account! </span>
+                    <span style="color: rgb(18,152,247); cursor: pointer;">Sign Up Here</span>
+                </div>
+            </div>
+        </div>
+       </div>
+       
+
+    </div>
+    <div class="container d-flex justify-content-center align-items-center mt-5">
+        <a  href="form2.html">Qua form 2 -></a>
+    </div>
+    
+    <script src="./index.js"></script>
+</body>
+</html>
